@@ -2,15 +2,20 @@
 const fetch = require('node-fetch');
 const cst = require("./constants.json");
 const error = require("./error");
+const HttpProxyAgent = require( 'http-proxy-agent' );
 
 exports.api_fetch = async (plages) => {
+
+    let options = {
+        agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+    };
 
     let data = [];
 
     for (const node of plages) {
 
         try {
-            var res = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`);
+            var res = await fetch(cst.openweather.api_url + `lat=${node.latitude}&lon=${node.longitude}&appid=${cst.openweather.key}`, options);
         } catch (e) {
             res = {ok:false, status:e.code, msg:e.message}
         }

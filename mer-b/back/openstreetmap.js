@@ -2,6 +2,7 @@
 const utils = require("./utils");
 const fetch = require('node-fetch');
 const cst = require("./constants.json");
+const HttpProxyAgent = require( 'http-proxy-agent' );
 
 exports.api_url = (filtres) => {
 
@@ -45,12 +46,16 @@ exports.api_url = (filtres) => {
 
 exports.api_fetch = async (url) => {
 
+    let options = {
+        agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+    };
+
     let i = 1;
-    let response = await fetch(cst.openstreetmap.api_url1 + url);
+    let response = await fetch(cst.openstreetmap.api_url1 + url, option);
 
     while (!response.ok && i < 4) {
         i++;
-        response = await fetch(cst.openstreetmap[`api_url${i}`] + url);
+        response = await fetch(cst.openstreetmap[`api_url${i}`] + url, option);
     }
 
     return response;

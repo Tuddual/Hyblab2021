@@ -51,11 +51,11 @@ exports.api_fetch = async (url) => {
     };
 
     let i = 1;
-    let response = await fetch(cst.openstreetmap.api_url1 + url, option);
+    let response = await fetch(cst.openstreetmap.api_url1 + url, options);
 
     while (!response.ok && i < 4) {
         i++;
-        response = await fetch(cst.openstreetmap[`api_url${i}`] + url, option);
+        response = await fetch(cst.openstreetmap[`api_url${i}`] + url, options);
     }
 
     return response;

@@ -47,7 +47,7 @@ exports.api_url = (filtres) => {
 exports.api_fetch = async (url) => {
 
     let options = {
-        agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+        agent: new HttpProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
     };
 
     let i = 1;

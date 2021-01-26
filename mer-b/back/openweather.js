@@ -2,12 +2,12 @@
 const fetch = require('node-fetch');
 const cst = require("./constants.json");
 const error = require("./error");
-const HttpProxyAgent = require( 'http-proxy-agent' );
+const HttpProxyAgent = require('http-proxy-agent');
 
 exports.api_fetch = async (plages) => {
 
     let options = {
-        agent: new HttpProxyAgent( 'http://cache.ha.univ-nantes.fr:3128' ),
+        agent: new HttpProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
     };
 
     let data = [];

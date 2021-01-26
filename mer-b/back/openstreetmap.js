@@ -10,18 +10,18 @@ exports.api_url = (filtres) => {
     // d = 2 * pi * r * a / 360, so a is equal to :
     const arc = 360 * filtres.radius/(2 * 6371 * Math.PI);
 
-    const prefix = `?data=%5Bout%3Ajson%5D`; // [out:json]
-    const bbox = `%5Bbbox%3A${filtres.latitude - arc}%2C${filtres.longitude - arc}%2C${filtres.latitude + arc}%2C${filtres.longitude + arc}%5D%3B%0D`; // [bbox:_,_,_,_];
-    const france = `%0A%0D%0Aarea%5Bname%3D%22France%22%5D%3B%0D`; // area["name"="France"];
+    const prefix = `?data=[out:json]`; // [out:json]
+    const bbox = `[bbox:${filtres.latitude - arc},${filtres.longitude - arc},${filtres.latitude + arc},${filtres.longitude + arc}];`; // [bbox:_,_,_,_];
+    const france = `area[name="France"];`; // area["name"="France"];
     
-    const pre_ask = `%0A%0D%0Anode`; // node
-    const with_nothing = `%28area%29`; // (area)
-    const ask = `%5B%22natural%22%3D%22beach%22%5D%2D%3E%2Ebeaches%3B%0D`; // ["natural"="beach"]->%2Ebeaches;
+    const pre_ask = `node`; // node
+    const with_nothing = `(area)`; // (area)
+    const ask = `["natural"="beach"]->.beaches;`; // ["natural"="beach"]->.beaches;
 
-    const prefix_output = `%0A++%0D%0A%28%2Ebeaches`; // (.beaches
-    const sufix_output = `%3B%29%3B%0D`; // ;);
+    const prefix_output = `++(.beaches`; // (.beaches
+    const sufix_output = `;);`; // ;);
 
-    const sufix = `%0Aout%3B&target=compact`; // out;
+    const sufix = `out;&target=compact`; // out;
 
     if (!filtres.hasOwnProperty("planning")) {
         return  prefix + bbox + france + pre_ask + with_nothing + ask + prefix_output + sufix_output + sufix;
@@ -30,15 +30,15 @@ exports.api_url = (filtres) => {
         const lighthouse = filtres.planning.includes("lighthouse");
         const car = filtres.planning.includes("car_park");
     
-        const ask_lighthouse = `%0A%28node%5B%22man_made%22%3D%22lighthouse%22%5D%28area%29%3Bnode%5B%22man_made%22%3D%22beacon%22%5D%28area%29%3B%29%2D%3E%2Elighthouse%3B%0D`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
-        const ask_harbor = `%0Anode%28area%29%5B%22harbour%22%3D%22yes%22%5D%5B%22seamark%3Atype%22%3D%22harbour%22%5D%2D%3E%2Eharbor%3B%0D`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
-        const ask_car = `%0Anode%28area%29%5B%22amenity%22%3D%22parking%22%5D%2D%3E%2Eparking%3B%0D`; // node["amenity"="parking"](area)->.carpark;
+        const ask_lighthouse = `(node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;`; // (node["man_made"="lighthouse"](area);node["man_made"="beacon"](area);)->.lighthouse;
+        const ask_harbor = `node(area)["harbour"="yes"]["seamark:type"="harbour"]->.harbor;`; // node["harbour"="yes"]["seamark:type"="harbour"](area)->.harbor;
+        const ask_car = `node(area)["amenity"="parking"]->.parking;`; // node["amenity"="parking"](area)->.carpark;
         
-        const with_lighthouse = `%28around%2Elighthouse%3A${(lighthouse?filtres.dist_lighthouse:"0")}%29`; // (around.lighthouse:10000)
-        const with_harbor = `%28around%2Eharbor%3A${(harbor?filtres.dist_harbor:"0")}%29`; // (around.harbor:10000)
-        const with_car = `%28around%2Ecarpark%3A${(car?filtres.dist_car:"0")}%29`; // (around.car:10000)
+        const with_lighthouse = `(around.lighthouse:${(lighthouse?filtres.dist_lighthouse:"0")})`; // (around.lighthouse:10000)
+        const with_harbor = `(around.harbor:${(harbor?filtres.dist_harbor:"0")})`; // (around.harbor:10000)
+        const with_car = `(around.carpark:${(car?filtres.dist_car:"0")})`; // (around.car:10000)
 
-        const separator_output = `%3B+`; // ;
+        const separator_output = `;+`; // ;
 
         return prefix + bbox + france + (harbor ? ask_harbor : ``) + (lighthouse ? ask_lighthouse : ``) + (car ? ask_car : ``) + pre_ask + (harbor ? with_harbor : ``) + (lighthouse ? with_lighthouse : ``) + (car ? with_car : ``) + ask + prefix_output + (harbor ? separator_output + `.harbor` : ``) + (lighthouse ? separator_output + `.lighthouse` : ``) + (car ? separator_output + `.parking` : ``) + sufix_output + sufix;
     }

@@ -526,10 +526,10 @@ h2 {
     100% { transform: rotate(360deg); }
   }
 
-.cartePostaleContainer {
+  .cartePostaleContainer {
     color: black;
-    width: 30em;
-    height: 20em;
+    width: 35%;
+    height: 23vw;
     text-align: left;
     display: inline-block;
     transform: rotate(4deg);
@@ -572,6 +572,7 @@ div#goback {
 
 .imgCarte {
     background: #2196f3;
+    background-size: cover;
 }
 
 .cartePostale .texte {
@@ -598,13 +599,23 @@ div#goback {
 }
 
 .informations {
-    margin-left: 2.8em;
-    margin-top: 9em;
+    margin-left: 3vw;
+    margin-top: 9.8vw;
     width: 12em;
-    line-height: 1.7em;
+    line-height: 1.8vw;
     font-size: 14px;
+    display: inline-block;
 }
 
 .informations span {
     font-size: 14px;
+}
+
+.horaire {
+    display: inline-block;
+    width: 160px;
+    margin-left: 41px;
+    margin-top: 10em;
+    text-align: center;
+    vertical-align: top;
 }

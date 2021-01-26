@@ -81,6 +81,7 @@ function affichageReset(){
             {
                 question : "A quel moment de la journée êtes-vous le plus inspiré ?",
                 element: "moment",
+                stepper : "true",
                 reponses : [
                     {
                         "texte" : "Aube",

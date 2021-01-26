@@ -409,10 +409,6 @@ div#breadcrumb-page-fin {
     text-align: center;
 }
 
-.presentation {
-    text-align: justify;
-}
-
 #containerBackground {
     position:absolute;
     width: 100%;
@@ -489,6 +485,41 @@ div#containerReponses {
     vertical-align: top;
     padding-bottom: 10px;
     width: 250px;
+}
+
+.stepper {
+    height: 45px;
+    width: 600px;
+    background-color: white;
+    border-radius: 30px;
+    padding-top: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.stepperSpace {
+    width: 500px;
+    margin-left: 45px;
+    position: relative;
+}
+
+.stepperBouton {
+    height: 41px;
+    width: 41px;
+    background: var(--bouton-bg-color, #203443);
+    border-radius: 45px;
+    position: absolute;
+}
+
+
+.containerStepperReponse {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-top: 15px;
+    font-weight: 700;
+    margin-left: 50px;
+    font-size: 18px;
 }
 
 /***slide fin***/
@@ -601,7 +632,7 @@ div#goback {
 .informations {
     margin-left: 3vw;
     margin-top: 9.8vw;
-    width: 12em;
+    width: 12vw;
     line-height: 1.8vw;
     font-size: 14px;
     display: inline-block;
@@ -614,8 +645,8 @@ div#goback {
 .horaire {
     display: inline-block;
     width: 160px;
-    margin-left: 41px;
-    margin-top: 10em;
+    margin-left: 4vw;
+    margin-top: 11vw;
     text-align: center;
     vertical-align: top;
 }

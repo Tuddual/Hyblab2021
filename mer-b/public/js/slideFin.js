@@ -92,7 +92,12 @@ function updateSlideFin(plages, criteres){
     }
 
     let date = cartePostale.querySelector("#date");
-    date.innerHTML = new Date(element.time).getDate() + '/' + (new Date(element.time).getMonth() + 1);
+    if((new Date(element.time).getMonth() + 1)<10){
+      date.innerHTML = new Date(element.time).getDate() + '/0' + (new Date(element.time).getMonth() + 1);
+    }
+    else {
+      date.innerHTML = new Date(element.time).getDate() + '/' + (new Date(element.time).getMonth() + 1);
+    }
 
     let heure = cartePostale.querySelector("#heure");
     if(new Date(element.time).getMinutes() < 10){

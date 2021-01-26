@@ -41,6 +41,10 @@ function addEventListenerBreadcrumbs(){
     breadcrumb.addEventListener("click", function(){
       mySlidr.slide(page);
       setActif(id);
+      if(id == 4){
+        let reponse = {json: "dawn"};
+        updateElement("moment", reponse);
+      }
     })
   }
 }

@@ -98,7 +98,7 @@ function setTexte(id){
         }
       }, true);
     
-      stepperBouton.addEventListener('mousemove', function(event) {
+      document.addEventListener('mousemove', function(event) {
         event.preventDefault();
         if (isDown) {
             mousePosition = {

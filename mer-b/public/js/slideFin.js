@@ -8,7 +8,7 @@ let initSlideFin = function(){
       sketchCiel.resetSketchCiel();
       resetDisplay();
       var root = document.documentElement;
-      root.style.setProperty('--breadcrumb-color', "#9DF5FF");
+      root.style.setProperty('--breadcrumb-color', "#6e889b");
       root.style.setProperty('--bouton-texte-color', "#203443");
     });
   

@@ -27,6 +27,11 @@ let sketchCiel = function(p) {
     let imgFondJour;
     let imgFondNuit;
     let imgFondSoleil;
+    let imgFondDebut;
+
+    let imgFondCoupeJour;
+    let imgFondCoupeNuit;
+    let imgFondCoupeSoleil;
 
     let imgPlanteJour;
     let imgPlanteNuit;
@@ -42,6 +47,7 @@ let sketchCiel = function(p) {
     let imgdisplayPhare;
     let phareY = -1;
     let imgdisplayFond;
+    let imgdisplayFondCoupe;
     let imgdisplayPlante;
 
     /*sons*/
@@ -63,7 +69,7 @@ let sketchCiel = function(p) {
     var backgroundColorJour = "#4fbece";
     var backgroundColorSoleil = "#69315e";
 
-    var backgroundColor = "#B6F6FC";
+    var backgroundColor = "#afdde2";
 
     p.setup = function(){
       fade = 0
@@ -97,9 +103,14 @@ let sketchCiel = function(p) {
       imgPhareNuit = p.loadImage('img/Phare/pharenuit.png');
       imgPhareSoleil = p.loadImage('img/Phare/pharesoleil.png');
 
-      imgFondJour = p.loadImage('img/Fonds/fondjour.png');
-      imgFondNuit = p.loadImage('img/Fonds/fondnuit.png');
-      imgFondSoleil = p.loadImage('img/Fonds/fondsoleil.png');
+      imgFondCoupeJour = p.loadImage('img/FondsTextures/fondjourcouper.png');
+      imgFondCoupeNuit = p.loadImage('img/FondsTextures/fondnuitcouper.png');
+      imgFondCoupeSoleil = p.loadImage('img/FondsTextures/fondsoleilcouper.png');
+
+      imgFondJour = p.loadImage('img/FondsTextures/fondjour.png');
+      imgFondNuit = p.loadImage('img/FondsTextures/fondnuit.png');
+      imgFondSoleil = p.loadImage('img/FondsTextures/fondsoleil.png');
+      imgFondDebut = p.loadImage('img/FondsTextures/fonddebut.png');
 
       imgPlanteJour = p.loadImage('img/Plante/plantesjour.png');
       imgPlanteNuit = p.loadImage('img/Plante/plantesnuit.png');
@@ -111,12 +122,17 @@ let sketchCiel = function(p) {
 
       xCoord2 = 0;
       yCoord2 = p.windowHeight;
+
+      imgdisplayFond = imgFondDebut;
     }
 
     p.draw = function() {
       affichage = getAffichage();
       //p.image(img, 0, 0, p.windowWidth, p.windowHeight);
       p.background(backgroundColor);
+      if(imgdisplayFond){
+        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
+      }
       animationCiel();
 
       if (rainingNow == true && cielY == 0) {
@@ -127,8 +143,8 @@ let sketchCiel = function(p) {
         }
       }
 
-      if(imgdisplayFond){
-        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
+      if(imgdisplayFondCoupe && rainingNow && cielY == 0){
+        p.image(imgdisplayFondCoupe, 0, 0, p.windowWidth, p.windowHeight);
       }
 
       /*if(imgdisplayPlante){
@@ -191,10 +207,6 @@ let sketchCiel = function(p) {
         p.image(imgdisplayMer, 0, merY, p.windowWidth, p.windowHeight);
       }
 
-      if(imgdisplayFond){
-        p.image(imgdisplayFond, 0, 0, p.windowWidth, p.windowHeight);
-      }
-
     }
 
     sketchCiel.resetSketchCiel = function(){
@@ -203,8 +215,10 @@ let sketchCiel = function(p) {
       imgdisplaySol = undefined;
       imgdisplayPhare = undefined;
       backgroundColor = "#B6F6FC";
+      imgdisplayFondCoupe = undefined;
       imgdisplayFond = undefined;
       imgdisplayPlante = undefined;
+      imgdisplayFond = imgFondDebut;
 
       cielY = -1;
       merY = -1;
@@ -230,7 +244,7 @@ let sketchCiel = function(p) {
 
 
       if(affichage.moment == "day" || affichage.moment == "indifferent"){
-        backgroundColor = backgroundColorJour;
+        imgdisplayFondCoupe = imgFondCoupeJour;
         imgdisplayFond = imgFondJour;
         imgdisplayPlante = imgPlanteJour;
 
@@ -284,8 +298,9 @@ let sketchCiel = function(p) {
 
       }
       else if(affichage.moment == "night"){
-        backgroundColor = backgroundColorNuit;
+        imgdisplayFondCoupe = imgFondCoupeNuit;
         imgdisplayFond = imgFondNuit;
+
         imgdisplayPlante = imgPlanteNuit;
 
         if(affichage.ciel || affichage.ciel == "indifferent"){
@@ -337,8 +352,9 @@ let sketchCiel = function(p) {
         }
       }
       else if(affichage.moment){
-        backgroundColor = backgroundColorSoleil;
         imgdisplayFond = imgFondSoleil;
+        imgdisplayFondCoupe = imgFondCoupeSoleil;
+
         imgdisplayPlante = imgPlanteSoleil;
 
         if(affichage.ciel || affichage.ciel == "indifferent"){

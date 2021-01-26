@@ -50,3 +50,34 @@ function addEventListenerBreadcrumbs(){
 }
 
 addEventListenerBreadcrumbs();
+
+
+function addEventListenerSound() {
+	let boutonSon = document.getElementById("boutonSon");
+	let volume = document.getElementById("volumeSon");
+	let previous = "";
+	boutonSon.addEventListener("click", function(){
+		if(volume.innerHTML == "volume_up"){
+			audio.volume = 0.05;
+			volume.innerHTML= "volume_down";
+			previous = "up";
+		}
+		else if (volume.innerHTML == "volume_down"){
+			if(previous == "up"){
+				audio.volume= 0;
+				volume.innerHTML= "volume_off";
+			}
+			if(previous == "off"){
+				audio.volume = 0.15;
+				volume.innerHTML= "volume_up";
+			}
+		}
+		else if (volume.innerHTML == "volume_off"){
+			audio.volume = 0.05;
+			volume.innerHTML = "volume_down";
+			previous = "off";
+		}
+	})
+}
+
+addEventListenerSound();

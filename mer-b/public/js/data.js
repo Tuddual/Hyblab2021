@@ -232,7 +232,7 @@ function affichageReset(){
                 },
                 {
                     "texte" : "Parking",
-                    "json" : "parking",
+                    "json" : "car_park",
                 }
             ]
           },

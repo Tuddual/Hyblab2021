@@ -111,5 +111,8 @@ function updateSlideFin(plages, criteres){
       let phare = cartePostale.querySelector(".phareNom");
       phare.innerHTML = element.phare.name;
     }
+
+    let itineraire = cartePostale.querySelector(".itineraire");
+    itineraire.setAttribute("href", "https://www.google.com/maps/dir/" + getAffichage().latitude + ",+" + getAffichage().longitude + " /" + element.latitude + "," + element.longitude + "/")
   });
 }

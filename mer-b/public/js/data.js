@@ -162,7 +162,7 @@ function affichageReset(){
                 element: "mer",
                 reponses : [
                     {
-                        "texte" : "Agitee",
+                        "texte" : "Agitée",
                         "json": "hectic"
                     },
                     {
@@ -196,10 +196,6 @@ function affichageReset(){
                     ]
                 },
                 {
-                  "texte" : "Indifférent",
-                  "json" : "indifferent",
-                },
-                {
                     "texte" : "Pluie",
                     "json" : "bad",
                     "citations": [
@@ -214,7 +210,11 @@ function affichageReset(){
                       '"La vie, ce n\'est pas d\'attendre que les nuages passent, c\'est d\'apprendre à danser sous la pluie" - Sénèque',
                       '"Le repos est un rêve; la vie est un orage" - George Sand'
                   ]
-                }
+                },
+                {
+                    "texte" : "Indifférent",
+                    "json" : "indifferent",
+                  },
             ]
           },
           {
@@ -229,6 +229,10 @@ function affichageReset(){
                 {
                     "texte" : "Port",
                     "json" : "harbor",
+                },
+                {
+                    "texte" : "Parking",
+                    "json" : "parking",
                 }
             ]
           },

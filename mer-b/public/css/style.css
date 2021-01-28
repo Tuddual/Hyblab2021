@@ -15,6 +15,10 @@ html, body {
 body{
     color: white;
     overflow: hidden;   /* pour slidr dans certains navigateurs */
+    background-image: url("../img/FondsTextures/fonddebut.png");
+    background-size: cover;
+    -webkit-transition: background-image 0.2s ease-in-out;
+    transition: background-image 0.2s ease-in-out;
 }
 
 #container{
@@ -59,10 +63,6 @@ section[data-slidr="page-1"] footer{
 
 /* Pour que la vidéo remplisse son conteneur (elle sera un peu coupée si nécessaire...) */
 .vjs-tech { object-fit: cover; }
-
-/* dernier slide sur fond blanc */
-section[data-slidr="page-2"]{
-}
 
 /* ---------- mise en forme du bandeau des logos ----------------- */
 /* ici comme on doit contraindre la hauteur des images (et non leur largeur) */
@@ -131,8 +131,6 @@ tant qu'on est en dessous de l'apect ratio 16/9 */
 
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la largeur ici. */
-    body{
-    }
 }
 
 /* Cette media query permet de s'assurer qu'on remplit toujours la hauteur de la fenêtre, quand on est au 
@@ -146,8 +144,6 @@ dessus de l'apect ratio 16/9 */
 
     /* On fixe une taille de police par défaut pour le body qui servira de base à toutes 
     les autres tailles de police. Celle-ci est proportionelle à la hauteur ici. */
-    body{
-    }
 }
 
 
@@ -184,13 +180,10 @@ div#displayCanvas {
     width: 200px;
 }
 
-#boutonSon{
-	position: absolute;
-	left: 10px;
+#boutonSon {
     z-index: 99;
-	top: 26%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-bottom: 10px;
+    margin-left: -10px;
 }
 	
 h1 {
@@ -317,6 +310,8 @@ h1 {
     height: 100%;
     left: 20px;
     z-index: 99;
+    width: 50px;
+    flex-wrap: wrap;
 }
 
 .chemin img {
@@ -324,11 +319,7 @@ h1 {
 }
 
 .chemin {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    position: relative;
   }
 
 .breadcrumbs {
@@ -472,7 +463,6 @@ input#adresse:focus {
 
 
 .citation {
-    /* citation */
     font-family: Abril Fatface;
     font-style: normal;
     font-weight: normal;
@@ -480,13 +470,17 @@ input#adresse:focus {
     line-height: 20px;
     text-align: center;
     opacity: 0;
-    color:  var(--citation-color, #203443);
+    color: var(--citation-color, #203443);
     transition: all 0.5s ease;
-
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 div#containerReponses {
-    max-width: 750px;
+    max-width: 850px;
+    margin-left: 20px;
 }
 
 .containerReponse .bouton:hover + .citation {
@@ -498,7 +492,8 @@ div#containerReponses {
     text-align: center;
     vertical-align: top;
     padding-bottom: 10px;
-    width: 250px;
+    position: relative;
+    margin-left: 30px;
 }
 
 .stepper {

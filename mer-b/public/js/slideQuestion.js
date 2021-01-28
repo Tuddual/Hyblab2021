@@ -76,25 +76,27 @@ function setTexte(id){
         offsetX = stepperBouton.offsetLeft - e.clientX;
       }, true);
 
-      stepperBouton.addEventListener('mouseup', function() {
-        isDown = false;
-        console.log(stepperBouton.style.left);
-        let x = stepperBouton.style.left.replace("px", "");
-        if(x < 83){
-          stepperBouton.style.left = 0;
-          updateElement(question.element, question.reponses[0]);
-        }
-        else if(x > 83 && x < 249){
-          stepperBouton.style.left = 146 + "px";
-          updateElement(question.element, question.reponses[1]);
-        }
-        else if(x > 249 && x < 415){
-          stepperBouton.style.left = 313 + "px";
-          updateElement(question.element, question.reponses[2]);
-        }
-        else {
-          stepperBouton.style.left = 468 + "px";
-          updateElement(question.element, question.reponses[3]);
+      document.addEventListener('mouseup', function() {
+        if(isDown){
+          isDown = false;
+          console.log(stepperBouton.style.left);
+          let x = stepperBouton.style.left.replace("px", "");
+          if(x < 83){
+            stepperBouton.style.left = 0;
+            updateElement(question.element, question.reponses[0]);
+          }
+          else if(x > 83 && x < 249){
+            stepperBouton.style.left = 146 + "px";
+            updateElement(question.element, question.reponses[1]);
+          }
+          else if(x > 249 && x < 415){
+            stepperBouton.style.left = 313 + "px";
+            updateElement(question.element, question.reponses[2]);
+          }
+          else {
+            stepperBouton.style.left = 468 + "px";
+            updateElement(question.element, question.reponses[3]);
+          }
         }
       }, true);
     

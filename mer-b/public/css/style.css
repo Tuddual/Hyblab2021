@@ -21,6 +21,11 @@ body{
     transition: background-image 0.2s ease-in-out;
 }
 
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
+    content:url("../img/FondsTextures/fonddebut.png") url("../img/FondsTextures/fondnuit.png") url("../img/FondsTextures/fondjour.png") url("../img/FondsTextures/fondsoleil.png");
+ }
+
 #container{
     position: relative; /* pour permettre le positionnement en absolu des autres éléments */
 }

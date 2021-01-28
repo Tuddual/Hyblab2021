@@ -591,6 +591,8 @@ h2 {
 
 .imgCarte {
     background-size: cover;
+    border: 5px solid white;
+    box-sizing: border-box;
 }
 
 .cartePostale.cp1 {

@@ -58,7 +58,6 @@ function updateSlideFin(plages, criteres){
   let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");
   plages.forEach((element, index) => {
 
-
     cartesPostalesList[index].style.display = "inline-block";
 
     let cartePostale = document.getElementById("cp" + (index + 1));
@@ -68,7 +67,9 @@ function updateSlideFin(plages, criteres){
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
 
     let nomPlage = cartePostale.querySelector(".nomPlage");
-    element.nom = element.nom.replaceAll("_", " ");
+    if(element.nom){
+      element.nom = element.nom.replaceAll("_", " ");
+    }
     nomPlage.innerHTML = element.nom;
     let temperature = cartePostale.querySelector(".temperatureRelle");
     temperature.innerHTML = element.weather.temperature + '°C';

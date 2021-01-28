@@ -2,7 +2,7 @@
 const utils = require("./utils");
 const fetch = require('node-fetch');
 const cst = require("./constants.json");
-const HttpProxyAgent = require( 'http-proxy-agent' );
+const HttpsProxyAgent = require( 'https-proxy-agent' );
 
 exports.api_url = (filtres) => {
 
@@ -47,7 +47,7 @@ exports.api_url = (filtres) => {
 exports.api_fetch = async (url) => {
 
     let options = {
-        agent: new HttpProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
+        agent: new HttpsProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
     };
 
     let i = 1;

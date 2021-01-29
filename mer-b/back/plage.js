@@ -39,7 +39,8 @@ exports.getbyfilter = async function(req) {
 
         const url2 = osm.api_url({
             longitude: filtres.longitude,
-            latitude: filtres.latitude
+            latitude: filtres.latitude,
+            radius: filtres.radius
         });
 
         const res2 = await osm.api_fetch(url2);

@@ -44,16 +44,18 @@ function affichageReset(){
                         "citations" : ['"La photographie est une brève complicité entre la prévoyance et le hasard." - John Stuart Mill',
                         '"L\'appareil photographique, c\'est l\'œil au bout des doigts" - Claude Batho',
                         '"La photographie peut fixer l\'éternité dans un instant" - Robert Bresson'
-                        ]
+                        ],
+                        "img" : "img/Metiers/photographefinal.png"
                     },
                     {
-                        "texte" : "Réalisation",
+                        "texte" : "Vidéo",
                         "json": "realisation",
                         "citations" : [
                             '"Le cinéma, c\'est un stylo, du papier et des heures à observer le monde et les gens" - Jacques Tati',
                             'Le cinéma est fait pour tous ceux dont la curiosité est le plus grand défaut" - Claude Lelouch',
                             'Le cinéma, c\'est l\'écriture moderne dont l\'encre est la lumière" - Jean Cocteau'
-                        ]
+                        ],
+                        "img" : "img/Metiers/cinemafinal.png"
                     },
                     {
                         "texte" : "Écriture",
@@ -62,7 +64,8 @@ function affichageReset(){
                             '"Les paroles vont comme le vent ; les écrits restent."',
                             '"L\'écriture est un scalpel pour voir comment la nature humaine fonctionne" - Phillipe Claudel',
                             '"L\'écriture est un luxe, l\'écriture est un bonheur, l\'écriture est une liberté" - André Compte-Sponville'
-                        ]
+                        ],
+                        "img" : "img/Metiers/livrefinal.png"
                     },
                     {
                       "texte" : "Peinture",
@@ -71,11 +74,13 @@ function affichageReset(){
                           '"La peinture, c\'est la face visible de l\'iceberg de ma pensée" - Salvador Dali',
                           '"La peinture vient de l\'endroit où les mots ne peuvent plus s\'exprimer" - Gao Xingjian',
                           '"L\'art de peindre n\'est que l\'art d\'exprimer l\'invisible par le visible" - Eugène Fromentin'
-                      ]
+                      ],
+                      "img" : "img/Metiers/peinturefinal.png"
                     },
                     {
                       "texte" : "Autres",
-                      "json" : "autres"
+                      "json" : "autres",
+                      "img" : "img/Metiers/autresfinal.png"
                     }
                 ]
             },
@@ -92,7 +97,8 @@ function affichageReset(){
                             '"L\'aube, un isolement entre la nuit et le jour" - Dominique Blondeau',
                             '"Enfants, vous êtes l\'aube et mon âme est la plaine" - Victor Hugo',
                             '"A l\'aube d\'un nouvel amour, que l\'amour d\'hier semble un mauvais rêve" - Paul-Jean Toulet'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/aube.png"
                     },
                     {
                         "texte" : "Journée",
@@ -100,7 +106,8 @@ function affichageReset(){
                         "citations": [
                             '"Attachons-nous à reconnaître le caractère précieux de chaque journée" - Dalai Lama',
                             '"Ce qu\'on pense être difficile prend une journée, ce qu\'on pense être impossible prend une semaine" - Jay-Z'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/journee.png"
                     },
                     {
                         "texte" : "Crépuscule",
@@ -108,7 +115,8 @@ function affichageReset(){
                         "citations": [
                             '“Le crépuscule d\'un homme voit se lever l\'aube d\'un autre.”',
                             '"Amitié, doux repos de l\'âme, crépuscule charmant des cœurs" - Alphonse de Lamartine'
-                        ]
+                        ],
+                        "img": "img/PictoMeteo/crepuscule.png"
                     },
                     {
                       "texte" : "Nuit",
@@ -117,7 +125,8 @@ function affichageReset(){
                           '“La nuit la plus sombre a toujours une fin lumineuse.”',
                           '"Il faut toujours viser la lune, car même en cas d\'échec, on atterrit dans les étoiles" - Oscar Wilde',
                           '"La nuit, on pense mieux, la tête est moins pleine de bruits" - Victor Hugo'
-                      ]
+                      ],
+                      "img": "img/PictoMeteo/nuit.png"
                     },
                     {
                       "texte" : "Indifférent",
@@ -239,7 +248,7 @@ function affichageReset(){
             ]
           },
           {
-            question : "A quel distance de la plage souhaitez-vous trouver ces aménagements ?",
+            question : "A quelle distance de la plage souhaitez-vous trouver ces aménagements ?",
             element: "distanceAmenagement",
             reponses : [
                 {
@@ -303,9 +312,10 @@ function affichageReset(){
         response.json().then(function(object) {
             if(object.status == 200){
                 addPhotos(object.output, object.criterion_not_met);
+				console.log(object);
             }
             else {
-                console.log(object);
+                updateSlideFinNotFound();
             }
         });
       });

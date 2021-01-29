@@ -6,6 +6,7 @@ let initSlide1 = function(){
     audioMer.loop = true;
 	audioMer.volume = volumeGeneral;
     setActif(2);
+    document.getElementById("topLeftLogo").style.display='block';
     mySlidr.slide('page-2');
   });
 };

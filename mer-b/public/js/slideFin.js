@@ -23,11 +23,15 @@ let initSlideFin = function(){
 
 function getPlagesSlideFin(){
   getPlages();
+  let loading = document.getElementById("loading");
+  loading.innerHTML = '<img src="img/chargementecran.gif" /> <h2>Un instant, nous cherchons la plage de vos rêves...</h2>';
+  loading.style.display = "block";
 }
 
 var cards = document.getElementsByClassName("cartePostale");
 var playing = false;
 
+/*
 for(let card of cards){
   card.addEventListener('click',function() {
     if(playing)
@@ -47,6 +51,7 @@ for(let card of cards){
     });
   });
 }
+*/
 
 function updateSlideFin(plages, criteres){
   let loading = document.getElementById("loading");
@@ -61,12 +66,18 @@ function updateSlideFin(plages, criteres){
 
     let imgPlage = cartePostale.querySelector(".imgCarte");
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
-
+	
     let nomPlage = cartePostale.querySelector(".nomPlage");
     if(element.nom){
       element.nom = element.nom.replaceAll("_", " ");
     }
     nomPlage.innerHTML = element.nom;
+	
+	let nomVille = cartePostale.querySelector(".nomVille");
+	if(element.adresse.commune){
+		element.adresse.commune = element.adresse.commune.replaceAll("_", " ");
+	}
+	nomVille.innerHTML = element.adresse.commune;
     let temperature = cartePostale.querySelector(".temperatureRelle");
     temperature.innerHTML = element.weather.temperature + '°C';
     let leverSoleil = cartePostale.querySelector(".leverSoleil");
@@ -112,4 +123,9 @@ function updateSlideFin(plages, criteres){
     let itineraire = cartePostale.querySelector(".itineraire");
     itineraire.setAttribute("href", "https://www.google.com/maps/dir/" + getAffichage().latitude + ",+" + getAffichage().longitude + " /" + element.latitude + "," + element.longitude + "/")
   });
+}
+
+function updateSlideFinNotFound(){
+  let loading = document.getElementById("loading");
+  loading.innerHTML = "<h2>Désolé, nous n'avons pas trouvé de plage correspondant à vos critères ! <br /> Essayez avec une nouvelle adresse ou d'autres critères.</h2>";
 }

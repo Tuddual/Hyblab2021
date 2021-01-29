@@ -43,10 +43,7 @@ function updateElement(element, reponse){
     }
 
     sketchCiel.updateSketchCiel(element, reponse);
-    console.log(getAffichage());
-
     let root = document.documentElement;
-
 
     if(element == "moment" && reponse.json == "night"){
       root.style.setProperty('--citation-color', "white");
@@ -59,7 +56,7 @@ function updateElement(element, reponse){
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
       root.style.setProperty('--bouton-texte-color', "#203443");
       root.style.setProperty('--citation-color', "#203443");
-      root.style.setProperty('--bouton-bg-color', '#203443');
+      root.style.setProperty('--bouton-bg-color', '#00C0D2');
       document.body.style.backgroundImage = "url('img/FondsTextures/fondjour.png')";
     }
     else if(element == "moment"){
@@ -89,4 +86,5 @@ function resetDisplay(){
   root.style.setProperty('--bouton-bg-color', '#203443');
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
   document.getElementsByClassName('stepperBouton')[0].style.left = 0;
+  document.getElementById("topLeftLogo").style.display='none';
 }

@@ -41,7 +41,7 @@
         <img class="plante" id="planteSoleil" src="img/Plante/soleil.gif" />
     </div>
     <div class="logo">
-        <img src="img/logo-blanc.png" />
+        <img id = "topLeftLogo" src="img/logo-blanc.png" style = "display:none;" />
     </div>
     <div class="containerChemin align-center-vertical">
         <div>
@@ -70,6 +70,9 @@
             <section data-slidr="page-1" id="page-1">
                 <div class="align-center-vertical">
                     <div class="containerAcceuil">
+                        <div class="logoContainer">
+                            <img src="img/logo-blanc.png" />
+                        </div>  
                         <h1>Bienvenue</h1>
                         <div class="presentation">
                             Amare est un site web dédié à la mise en valeur de la production artistique.
@@ -102,6 +105,7 @@
                     
                             <div class="materialBouton disable" id="boutonBegin"><i class="material-icons">east</i></div>
                             <div class="distanceContainer">
+                                <h3 style="margin-bottom:20px"> Quelle est la distance maximale que vous êtes prêt à parcourir ?</h3>
                                 <input type="range" id="distance" name="distance"
                                 min="0" max="200">
                                 <div class="distanceDisplay">
@@ -210,6 +214,7 @@
                                 <div class="texte">
                                     <div class="informations">
                                         <span class="nomPlage">Nom de la plage</span><br />
+                                        <span class="nomVille">Nom de la ville</span><br />
                                         Température : <span class="temperatureRelle">2°C</span><br />
                                         Lever du soleil : <span class="leverSoleil">8:00</span><br />
                                         Coucher du soleil : <span class="coucherSoleil">16:00</span><br />
@@ -229,6 +234,7 @@
                                 <div class="texte">
                                     <div class="informations">
                                         <span class="nomPlage">Nom de la plage</span><br />
+										<span class="nomVille"></span><br />
                                         Température : <span class="temperatureRelle">2°C</span><br />
                                         Lever du soleil : <span class="leverSoleil">8:00</span><br />
                                         Coucher du soleil : <span class="coucherSoleil">16:00</span><br />
@@ -248,6 +254,7 @@
                                 <div class="texte">
                                     <div class="informations">
                                         <span class="nomPlage">Nom de la plage</span><br />
+										<span class="nomVille">Nom de la ville</span><br />
                                         Température : <span class="temperatureRelle">2°C</span><br />
                                         Lever du soleil : <span class="leverSoleil">8:00</span><br />
                                         Coucher du soleil : <span class="coucherSoleil">16:00</span><br />

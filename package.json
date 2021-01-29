@@ -10,8 +10,8 @@
     "autocomplete-js": "^2.7.1",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
-    "xml-js": "^1.6.11"
-    "https-proxy-agent": "^5.0.0",
+    "xml-js": "^1.6.11",
+    "https-proxy-agent": "^5.0.0"
   },
   "author": "MPDS",
   "license": "MIT",

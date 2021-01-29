@@ -1,3 +1,5 @@
+var audioPort = new Audio('sound/sonSirene.wav');
+
 function updateElement(element, reponse){
     let valeur = reponse.json;
     let affichage = getAffichage();
@@ -24,23 +26,20 @@ function updateElement(element, reponse){
     }
     if(element == "amenagement"){
       if(affichage[element].includes(valeur)){
-        affichage[element] = affichage[element].replace(valeur + '(10000),','');
+        affichage[element] = affichage[element].replace(valeur + ',','');
         sketchCiel.updateSketchCiel();
       }
       else {
         if(valeur == "harbor"){
-          var audio = new Audio('sound/sonSirene.wav');
-          audio.play();
+          
+		  audioPort.volume = volumeGeneral;
+          audioPort.play();
         }
-        affichage[element] += valeur + '(10000),';
+        affichage[element] += valeur + ',';
       }
     }
     else {
       affichage[element] = valeur;
-    }
-
-    if(element == "distance"){
-      affichage["amenagement"] = affichage["amenagement"].replaceAll(/\((.+?)\)/g, "(" + reponse.json + ")");
     }
 
     sketchCiel.updateSketchCiel(element, reponse);
@@ -89,4 +88,5 @@ function resetDisplay(){
   root.style.setProperty('--citation-color', "#203443");
   root.style.setProperty('--bouton-bg-color', '#203443');
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
+  document.getElementsByClassName('stepperBouton')[0].style.left = 0;
 }

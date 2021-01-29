@@ -337,7 +337,7 @@ let sketchCiel = function(p) {
           imgdisplayPort = undefined;
         }
 
-        if(affichage.amenagement.includes("parking")){
+        if(affichage.amenagement.includes("car_park")){
           imgdisplayParking = imgParkingJour;
         }
         else {
@@ -411,7 +411,7 @@ let sketchCiel = function(p) {
           imgdisplayPort = undefined;
         }
 
-        if(affichage.amenagement.includes("parking")){
+        if(affichage.amenagement.includes("car_park")){
           imgdisplayParking = imgParkingNuit;
         }
         else {
@@ -484,7 +484,7 @@ let sketchCiel = function(p) {
           imgdisplayPort = undefined;
         }
 
-        if(affichage.amenagement.includes("parking")){
+        if(affichage.amenagement.includes("car_park")){
           imgdisplayParking = imgParkingSoleil;
         }
         else {

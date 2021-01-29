@@ -158,7 +158,7 @@ function affichageReset(){
                 ]
             },
             {
-                question : "Quelle type de mer voulez-vous avoir ?",
+                question : "Quel type de mer souhaiteriez-vous ?",
                 element: "mer",
                 reponses : [
                     {
@@ -238,18 +238,18 @@ function affichageReset(){
           },
           {
             question : "A quel distance de la plage souhaitez-vous trouver ces aménagements ?",
-            element: "distance",
+            element: "distanceAmenagement",
             reponses : [
                 {
-                    "texte" : "1 km",
+                    "texte" : "< 1 km",
                     "json": "1000"
                 },
                 {
-                    "texte" : "5 km",
+                    "texte" : "< 5 km",
                     "json" : "5000",
                 },
                 {
-                    "texte" : "10 km",
+                    "texte" : "< 10 km",
                     "json" : "10000",
                 },
                 {
@@ -271,22 +271,28 @@ function affichageReset(){
           urlGet += 'latitude=' + affichage.latitude + "&";
       }
 
-      if(affichage.type != 'indifferent'){
+      if(affichage.type != 'indifferent' && affichage.type != ""){
           urlGet += 'type=' + affichage.type + "&"; 
       }
-      if(affichage.moment != 'indifferent'){
+      if(affichage.moment != 'indifferent' && affichage.moment != "" ){
           urlGet += 'time=' + affichage.moment + '&';
       }
 
-      if(affichage.ciel != 'indifferent'){
+      if(affichage.ciel != 'indifferent' && affichage.ciel != ""){
           urlGet += 'weather=' + affichage.ciel + '&';
       }
-      if(affichage.mer != 'indifferent'){
+      if(affichage.mer != 'indifferent' && affichage.mer != ""){
           urlGet += 'sea=' + affichage.mer + '&';
       }
       if(affichage.amenagement != ''){
           let planning = affichage.amenagement.slice(0, -1);
-          urlGet += 'planning=' + planning + '&';
+          let amenagements = planning.split(",");
+          urlGet += "planning=";
+          for(let amenagement of amenagements){
+              urlGet+= amenagement + "(" + affichage.distanceAmenagement + ")" + ",";
+          }
+          urlGet = urlGet.slice(0, -1);
+          urlGet += "&";
       }
 
       urlGet += 'radius=' + 100;

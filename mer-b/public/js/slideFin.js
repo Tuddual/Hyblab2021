@@ -22,9 +22,7 @@ let initSlideFin = function(){
   };
 
 function getPlagesSlideFin(){
-  
-  let plages = getPlages();
-  console.log(plages);
+  getPlages();
 }
 
 var cards = document.getElementsByClassName("cartePostale");

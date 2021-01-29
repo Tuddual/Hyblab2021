@@ -215,14 +215,24 @@ function setTexte(id){
       updateElement("moment", reponse);
     }
     if(id < contenu.questions.length){
-      mySlidr.slide('page-' + (id + 3));
-      setActif(id + 3);
+      if(id + 3 == 9){
+        if(getAffichage().amenagement == ""){
+          next(id + 1);
+        }
+        else {
+          mySlidr.slide('page-' + (id + 3));
+          setActif(id + 3);    
+        }
+      }
+      else {
+        mySlidr.slide('page-' + (id + 3));
+        setActif(id + 3);
+      }
     }
     else {
       mySlidr.slide('page-fin');
       setActif("fin");
       getPlagesSlideFin();
-      
     }
   }
 

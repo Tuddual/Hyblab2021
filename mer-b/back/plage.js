@@ -3,6 +3,7 @@ const error = require("./error");
 const utils = require("./utils");
 const osm = require("./openstreetmap");
 const ow = require("./openweather");
+const no = require("./nominatism");
 
 exports.getbyfilter = async function(req) {
 
@@ -133,18 +134,24 @@ exports.getbyfilter = async function(req) {
     }
 
     // Take the 3 nodes nearest of the initial location=
-    let filter_f = utils.filter2(plages_s, weather_s, filtres, 3)
-    var plages_f = filter_f[0];
-    var weather_f = filter_f[1];
+    const filter_f = utils.filter2(plages_s, weather_s, filtres, 3)
+    const plages_f = filter_f[0];
+    const weather_f = filter_f[1];
 
     // Choose a good time to go
-    let plages_c = ow.choose(plages_f, weather_f)
+    const plages_c = ow.choose(plages_f, weather_f)
+
+    // fecth adress from lat & lon
+    const adress = await no.api_fetch(plages_c);
+
+    // add to plages
+    const plages_a = no.format(plages_c, adress.data);
 
     return {
         ok: true,
         status: 200,
         descritption: (criterion_not_met.length?`All things done`:`All things done succesfully`),
         criterion_not_met: criterion_not_met,
-        output: plages_c
+        output: plages_a
     };
 };

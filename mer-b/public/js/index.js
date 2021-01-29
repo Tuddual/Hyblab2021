@@ -39,11 +39,24 @@ function addEventListenerBreadcrumbs(){
     let page = breadcrumb.id.replace("breadcrumb-", "");
     let id = page.replace("page-", "");
     breadcrumb.addEventListener("click", function(){
-      mySlidr.slide(page);
-      setActif(id);
-      if(id == 4 && getAffichage().moment == ""){
-        let reponse = {json: "dawn"};
-        updateElement("moment", reponse);
+      if((id <= 2 || getAffichage().longitude != "") && (id <= 4 || getAffichage().moment != "") && (id <= 5 || getAffichage().type != "")
+      && (id <= 5 || getAffichage().mer != "") && (id <= 6 || getAffichage().ciel != "")){
+        if(id == 9 && getAffichage().amenagement == ""){
+          mySlidr.slide("page-fin");
+          setActif("fin");
+          getPlagesSlideFin();
+        }
+        else {
+          mySlidr.slide(page);
+          setActif(id);
+          if(id == "fin"){
+            getPlagesSlideFin();
+          }
+          else if(id == 4 && getAffichage().moment == ""){
+            let reponse = {json: "dawn"};
+            updateElement("moment", reponse);
+          }
+        }
       }
     })
   }
@@ -51,29 +64,39 @@ function addEventListenerBreadcrumbs(){
 
 addEventListenerBreadcrumbs();
 
+var volumeGeneral = 0.15;
 
 function addEventListenerSound() {
 	let boutonSon = document.getElementById("boutonSon");
 	let volume = document.getElementById("volumeSon");
+	
 	let previous = "";
 	boutonSon.addEventListener("click", function(){
 		if(volume.innerHTML == "volume_up"){
-			audio.volume = 0.05;
+			audioMer.volume = 0.05;
+			audioPort.volume = 0.05;
+			volumeGeneral = 0.05;
 			volume.innerHTML= "volume_down";
 			previous = "up";
 		}
 		else if (volume.innerHTML == "volume_down"){
 			if(previous == "up"){
-				audio.volume= 0;
+				audioMer.volume= 0;
+				audioPort.volume= 0;
+				volumeGeneral = 0;
 				volume.innerHTML= "volume_off";
 			}
 			if(previous == "off"){
-				audio.volume = 0.15;
+				audioMer.volume = 0.15;
+				audioPort.volume = 0.15;
+				volumeGeneral = 0.15;
 				volume.innerHTML= "volume_up";
 			}
 		}
 		else if (volume.innerHTML == "volume_off"){
-			audio.volume = 0.05;
+			audioMer.volume = 0.05;
+			audioPort.volume = 0.05;
+			volumeGeneral = 0.05;
 			volume.innerHTML = "volume_down";
 			previous = "off";
 		}

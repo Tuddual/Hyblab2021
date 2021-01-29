@@ -101,7 +101,7 @@ function setTexte(id){
       }, true);
     
       document.addEventListener('mousemove', function(event) {
-        event.preventDefault();
+        //event.preventDefault();
         if (isDown) {
             mousePosition = {
     

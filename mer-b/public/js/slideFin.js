@@ -49,8 +49,6 @@ for(let card of cards){
 }
 
 function updateSlideFin(plages, criteres){
-  console.log(criteres);
-  console.log(plages);
   let loading = document.getElementById("loading");
   loading.style.display = "none";
   let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");

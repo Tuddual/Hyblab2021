@@ -439,13 +439,14 @@ div#boutonGoSlide2 {
 /** slide adresse**/
 input#adresse {
     height: 45px;
-    width: 350px;
+    width: 360px;
     font-size: 25px;
     border: 0px;
     border-radius: 50px;
     padding-left: 10px;
     margin-right: 15px;
     padding-right: 10px;
+    box-sizing: border-box;
 }
 
 input#adresse:focus {
@@ -458,6 +459,20 @@ input#adresse:focus {
 
 .imgLocalisation img{
     height: 45px;
+}
+
+input#distance {
+    width: 360px;
+}
+
+.distanceContainer {
+    margin-top: 30px;
+    width: fit-content;
+}
+
+.distanceDisplay {
+    display: flex;
+    justify-content: space-between;
 }
 
 /***slide questions***/

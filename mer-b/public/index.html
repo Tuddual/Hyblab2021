@@ -93,11 +93,25 @@
                         <div class="imgLocalisation">
                             <img src="img/pointlocalisation.png" />
                         </div>
-                        <input type="text" class="form-control" name="name" id="adresse" list="huge_list" placeholder="Votre adresse...">
-                        <datalist id="huge_list">
-                        </datalist>
-                
-                        <div class="materialBouton" id="boutonBegin"><i class="material-icons">east</i></div>
+                        <div style="width: fit-content;
+                        margin-left: auto;
+                        margin-right: auto;">
+                            <input type="text" class="form-control" name="name" id="adresse" list="huge_list" placeholder="Votre adresse...">
+                            <datalist id="huge_list">
+                            </datalist>
+                    
+                            <div class="materialBouton" id="boutonBegin"><i class="material-icons">east</i></div>
+                            <div class="distanceContainer">
+                                <input type="range" id="distance" name="distance"
+                                min="0" max="200">
+                                <div class="distanceDisplay">
+                                    <span class="min">0 km </span>
+                                    <span class="actuel" id="distanceActuel">100 km</span>
+                                    <span class="max">200km</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </section>

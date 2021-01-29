@@ -6,7 +6,8 @@ let affichage = {
     "mer": "",
     "amenagement" :"",
     "longitude" : "",
-    "latitude": ""
+    "latitude": "",
+    "distance": 100
 }
 
 function getAffichage(){
@@ -22,7 +23,8 @@ function affichageReset(){
         "mer": "",
         "amenagement" :"",  
         "longitude" : affichage.longitude,
-        "latitude": affichage.latitude
+        "latitude": affichage.latitude,
+        "distance": 100
     }
 
     sketchCiel.updateSketchCiel();
@@ -295,7 +297,7 @@ function affichageReset(){
           urlGet += "&";
       }
 
-      urlGet += 'radius=' + 100;
+      urlGet += 'radius=' + affichage.distance;
 
       console.log(urlGet);
 

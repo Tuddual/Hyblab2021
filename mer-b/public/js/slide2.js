@@ -9,6 +9,29 @@ let initSlide2 = function(){
 
 };
 
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let affichage = getAffichage();
+    affichage.latitude = position.coords.latitude;
+    affichage.longitude = position.coords.longitude;
+
+    let adresseInput = document.getElementById("adresse");
+    adresseInput.value = "adresse ok !";
+  });
+} else {
+  /* la géolocalisation n'est pas disponible */
+}
+
+let inputDistance = document.getElementById('distance');
+console.log(inputDistance);
+inputDistance.addEventListener("input", function(event){
+  console.log(event.target.value);
+  let distanceDisplay = document.getElementById('distanceActuel');
+  distanceDisplay.innerHTML = event.target.value + " km";
+  let affichage = getAffichage();
+  affichage.distance = event.target.value;
+});
+
 window.addEventListener("load", function(){
 
   // Add a keyup event listener to our input element

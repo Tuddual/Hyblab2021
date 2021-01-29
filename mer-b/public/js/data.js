@@ -299,8 +299,6 @@ function affichageReset(){
 
       urlGet += 'radius=' + affichage.distance;
 
-      console.log(urlGet);
-
       fetch(urlGet).then(function(response) {
         response.json().then(function(object) {
             if(object.status == 200){

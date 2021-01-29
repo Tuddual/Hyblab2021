@@ -16,16 +16,17 @@ if ("geolocation" in navigator) {
     affichage.longitude = position.coords.longitude;
 
     let adresseInput = document.getElementById("adresse");
-    adresseInput.value = "adresse ok !";
+    adresseInput.value = "Adresse ok !";
+    let boutonBegin = document.getElementById("boutonBegin");
+    boutonBegin.className = boutonBegin.className.replace(/\bdisable\b/g, "");
+
   });
 } else {
   /* la géolocalisation n'est pas disponible */
 }
 
 let inputDistance = document.getElementById('distance');
-console.log(inputDistance);
 inputDistance.addEventListener("input", function(event){
-  console.log(event.target.value);
   let distanceDisplay = document.getElementById('distanceActuel');
   distanceDisplay.innerHTML = event.target.value + " km";
   let affichage = getAffichage();
@@ -97,6 +98,8 @@ document.querySelector('input').oninput = function(input) {
       let coordinates = geometry.split(",");
       affichage.latitude = coordinates[1];
       affichage.longitude = coordinates[0];
+      let boutonBegin = document.getElementById("boutonBegin");
+      boutonBegin.className = boutonBegin.className.replace(/\bdisable\b/g, "");
     }
   })
 };

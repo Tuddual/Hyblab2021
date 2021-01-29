@@ -279,9 +279,9 @@ h1 {
   
     /* Support for IE. */
     font-feature-settings: 'liga';
-    color: white;
   }
 
+  
 .material-icons:hover{
     color: var(--bouton-bg-color, #203443);
 }
@@ -307,6 +307,24 @@ h1 {
 
 .materialBouton:hover .material-icons {
     color: var(--bouton-bg-color, #203443);
+}
+
+.disable {
+    color: #ffffff5c !important;
+    border: 3px solid;
+}
+
+.disable:hover{
+    color: #ffffff5c !important;
+    border: 3px solid;
+}
+
+.disable:hover .material-icons:hover{
+    color: #ffffff5c !important;
+}
+
+.disable:hover .material-icons{
+    color: #ffffff5c !important;
 }
 
 .containerChemin {

@@ -42,9 +42,9 @@ exports.format = (plages, adress) => {
     for (let i =0; i<3; i++) {
 
         plages[i].adresse = {
-            rue: adress[i].reversegeocode.addressparts.road._text,
-            code_postale: adress[i].reversegeocode.addressparts.postcode._text,
-            commune: adress[i].reversegeocode.addressparts.village._text
+            rue: (adress[i].reversegeocode.addressparts.hasOwnProperty("road")? adress[i].reversegeocode.addressparts.road._text : ""),
+            code_postale: (adress[i].reversegeocode.addressparts.hasOwnProperty("postcode")? adress[i].reversegeocode.addressparts.postcode._text : ""),
+            commune: (adress[i].reversegeocode.addressparts.hasOwnProperty("city")? adress[i].reversegeocode.addressparts.city._text : adress[i].reversegeocode.addressparts.hasOwnProperty("town")? adress[i].reversegeocode.addressparts.town._text : adress[i].reversegeocode.addressparts.hasOwnProperty("village")? adress[i].reversegeocode.addressparts.village._text : "")
         };
     }
 

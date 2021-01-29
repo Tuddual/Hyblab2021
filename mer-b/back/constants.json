@@ -1,15 +1,15 @@
 {
     "openstreetmap" : {
-        "api_url1" : "https://lz4.overpass-api.de/api/interpreter",
-        "api_url2" : "https://z.overpass-api.de/api/interpreter",
-        "api_url3" : "https://overpass.kumi.systems/api/interpreter",
-        "api_url4" : "https://overpass.nchc.org.tw/api/interpreter"
+        "api_url1" : "http://lz4.overpass-api.de/api/interpreter",
+        "api_url2" : "http://z.overpass-api.de/api/interpreter",
+        "api_url3" : "http://overpass.kumi.systems/api/interpreter",
+        "api_url4" : "http://overpass.nchc.org.tw/api/interpreter"
     },
     "openweather" : {
-        "api_url" : "https://api.openweathermap.org/data/2.5/onecall?",
+        "api_url" : "http://api.openweathermap.org/data/2.5/onecall?",
         "key" : ""
     },
     "nominatim" : {
-        "api_url" : "https://nominatim.openstreetmap.org/reverse?"
+        "api_url" : "http://nominatim.openstreetmap.org/reverse?"
     }
 }

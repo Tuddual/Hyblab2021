@@ -2,15 +2,20 @@
 const fetch = require('node-fetch');
 const convert = require("xml-js");
 const cst = require("./constants.json");
+const HttpsProxyAgent = require('https-proxy-agent');
 
 exports.api_fetch = async (plages) => {
+    
+    let options = {
+        agent: new HttpsProxyAgent('http://cache.ha.univ-nantes.fr:3128'),
+    };
 
     let data = [];
 
     for (const node of plages) {
 
         try {
-            var res = await fetch(cst.nominatim.api_url + `lat=${node.latitude}&lon=${node.longitude}`);
+            var res = await fetch(cst.nominatim.api_url + `lat=${node.latitude}&lon=${node.longitude}`, options);
         } catch (e) {
             res = {
                 ok: false,

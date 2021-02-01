@@ -560,6 +560,11 @@ section#page-1 h1{
     section#page-3 #containerReponses{
     margin-top:-115px;
     color: #203443;}
+
+    section#page-3 h1{
+        color: #203443;
+    }
+    
     
     section#page-4 #containerReponses{
     margin-top:-100px;}

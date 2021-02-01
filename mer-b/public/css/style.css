@@ -180,6 +180,7 @@ div#displayCanvas {
     width: 200px;
     position: absolute;
     padding: 10px;
+    z-index: 20;
 }
 
 .logo img {
@@ -256,6 +257,8 @@ h1 {
     display: flex;
     align-items: center;
     height: 100%;
+    z-index: 2;
+    position: relative;
 }
    
 .material-icons {

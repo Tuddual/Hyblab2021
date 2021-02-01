@@ -5,6 +5,8 @@ function updateElement(element, reponse){
     let affichage = getAffichage();
 
     if(element == "moment" ){
+      let logo = document.getElementById("topLeftLogo");
+      logo.src = "img/logo-blanc.png";
       let planteJour = document.getElementById("planteJour");
       let planteNuit = document.getElementById("planteNuit");
       let planteSoleil = document.getElementById("planteSoleil");
@@ -75,6 +77,9 @@ function updateElement(element, reponse){
   }
 
 function resetDisplay(){
+  let logo = document.getElementById("topLeftLogo");
+  logo.src = "img/logo-bleu.png";
+
   let planteJour = document.getElementById("planteJour");
   let planteNuit = document.getElementById("planteNuit");
   let planteSoleil = document.getElementById("planteSoleil");

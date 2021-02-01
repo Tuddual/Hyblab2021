@@ -27,6 +27,9 @@ function getPlagesSlideFin(){
   loading.innerHTML = '<img src="img/chargementecran.gif" /> <h2>Un instant, nous cherchons la plage de vos rêves...</h2>';
   loading.style.display = "block";
 
+  let logo = document.getElementById("topLeftLogo");
+  logo.src = "img/logo-bleu-clair.png";
+
   let cartesPostales = document.getElementsByClassName("cartesPostales")[0];
   cartesPostales.style.display = "none";
 }

@@ -232,7 +232,6 @@ let sketchCiel = function(p) {
     }
 
     sketchCiel.resetSketchCiel = function(){
-      console.log("reset");
       imgdisplayCiel = undefined;
       imgdisplayMer = undefined;
       imgdisplaySol = undefined;

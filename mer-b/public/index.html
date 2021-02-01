@@ -71,17 +71,24 @@
                 <div class="align-center-vertical">
                     <div class="containerAcceuil">
                         <div class="logoContainer">
-                            <img src="img/logo-blanc.png" />
+                            <img src="img/logo-bleu.png" />
                         </div>  
                         <h1>Bienvenue</h1>
                         <div class="presentation">
-                            Amare est un site web dédié à la mise en valeur de la production artistique.
+                            <b>“La voix de la mer parle à l’âme. Le contact de la mer est sensuel, 
+                            et enlace le corps dans une douce et secrète étreinte.” Kate Chopin</b>
                             <br /><br />
-                            <b>Vous êtes artiste et cherchez une plage pour vous inspirer ?</b> 
+                            Où trouver l’inspiration ? En remuant sans cesse dans le salon ? En regardant par la fenêtre ? En scrutant l’horizon ?<br />
+                            Question inutile, les artistes le savent bien : la créativité n'arrive jamais quand on la demande. <br />
+                            Elle va-et-vient, comme une marée, sans cesse, inévitable. Elle reflète nos émotions.<br />
+                            “Mais oui ! Il me faut une plage ! Quelle merveilleuse idée !”<br />
+                            <br />
+                            <b>Vous avez une âme d’artiste et cherchez une plage pour vous inspirer ? </b> 
+                            <br /><br />
+                            <b>Amare est un site web qui vous aidera à trouver l’inspiration !</b> 
                             <br /><br />
                             Rentrez vos critères (période de la journée, météo, type de plages, port,...) 
-                            à travers une ambiance audiovisuelle unique et naviguer à travers Amare.
-                            Nous trouverons la plage qui correspond à vos critères la plus proche de chez vous
+                            à travers une expérience sensorielle unique et naviguez à travers Amare.
                         </div>
                         <div id="boutonGoSlide2" class="bouton">Commencer l'aventure</div>
                     </div>
@@ -93,7 +100,7 @@
                     <div class="containerAcceuil">
                         <h1>Entrez votre localisation</h1>
                         <h3>(Ex : 99 rue des Dunes 35400 SAINT-MALO)</h3>
-                        <div class="imgLocalisation">
+                        <div class="imgLocalisation" style="margin-right: 50px;">
                             <img src="img/pointlocalisation.png" />
                         </div>
                         <div style="width: fit-content;
@@ -105,11 +112,11 @@
                     
                             <div class="materialBouton disable" id="boutonBegin"><i class="material-icons">east</i></div>
                             <div class="distanceContainer">
-                                <h3 style="margin-bottom:20px"> Quelle est la distance maximale que vous êtes prêt à parcourir ?</h3>
+                                <h3 style="margin-bottom:20px;margin-top: 20px;"> Quelle est la distance maximale que vous êtes prêt à parcourir ?</h3>
                                 <input type="range" id="distance" name="distance"
                                 min="0" max="200">
                                 <div class="distanceDisplay">
-                                    <span class="min">0 km </span>
+                                    <span class="min" >0 km </span>
                                     <span class="actuel" id="distanceActuel">100 km</span>
                                     <span class="max">200km</span>
                                 </div>
@@ -205,8 +212,55 @@
             </section>
 
             <section data-slidr="page-fin" id="page-fin">
+                <div class="bouton credit" id="boutonCredit">Crédits</div>
+                <div class="credits">
+                    <div id="closeCredit"><i class="material-icons" id="volumeSon">close</i></div>
+                    <table>
+                        <tr>
+                            <td><img src="img/Credits/AGR.png" 
+                                style="height: 101px;
+                                width: 94px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Directeurs Artistiques</b><br />
+                                Élodie DEVANT <br />
+                                Ryan BENNOUR <br />
+                                Tanguy AULAGNON 
+                            </td>
+                            <td><img src="img/Credits/HYBLAB.png" 
+                                style="width: 440px;" /></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/Credits/Polytetech.png" style="width: 63px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Développeurs</b><br />
+                                Lucille GALLET<br />
+                                Tudual QUINIO<br />
+                                Virgile GHAZI<br />
+                                Guillaume CORONEL<br />
+                                Guillaume HUTIN<br />
+                                Noémie HENRY<br />
+                                Omaïma SAHNOUR<br />
+                                Paul BERTIN
+                            </td>
+                            <td><img src="img/Credits/OpenSource.png" style="width: 90px;" /> <img src="img/Credits/UN.jpg" style="width: 155px; margin-left: 50px;" /></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/Credits/audencia.jpg" style="width: 113px;" /></td>
+                            <td style="text-align: left;">
+                                <b style="font-variant: all-petite-caps;
+                                font-size: 20px;">Story-telling</b><br />
+                                Logan BARRÉ<br />
+                                Charles JOUANNO
+                            </td>
+                            <td><img src="img/Credits/logoCC.png" style="width: 82px;" /> <img src="img/Credits/OML.png" style="width: 223px; margin-left: 50px;" /></td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="containerFin align-center-vertical">
                     <div style="width: 100%;">
+                        <div class="cartesPostales">
                         <div class="cartePostaleContainer" style="transform: rotate(-2deg);">
                             <div class="cartePostale cp1" id="cp1">
                                 <div class="imgCarte">
@@ -267,6 +321,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                         <div class="align-center-vertical">
                             <div id="loading">

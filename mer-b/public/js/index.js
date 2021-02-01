@@ -4,7 +4,7 @@ let mySlidr = slidr.create('slidr',{
   controls: 'none',
   direction: 'vertical',
   fade: true,
-  keyboard: true,
+  keyboard: false,
   overflow: true,
   pause: false,
   theme: '#222',

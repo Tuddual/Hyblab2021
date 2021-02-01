@@ -26,6 +26,9 @@ function getPlagesSlideFin(){
   let loading = document.getElementById("loading");
   loading.innerHTML = '<img src="img/chargementecran.gif" /> <h2>Un instant, nous cherchons la plage de vos rêves...</h2>';
   loading.style.display = "block";
+
+  let cartesPostales = document.getElementsByClassName("cartesPostales")[0];
+  cartesPostales.style.display = "none";
 }
 
 var cards = document.getElementsByClassName("cartePostale");
@@ -56,13 +59,15 @@ for(let card of cards){
 function updateSlideFin(plages, criteres){
   let loading = document.getElementById("loading");
   loading.style.display = "none";
+  let cartesPostales = document.getElementsByClassName("cartesPostales")[0];
+  cartesPostales.style.display = "block";
+
   let cartesPostalesList = document.getElementsByClassName("cartePostaleContainer");
   plages.forEach((element, index) => {
 
     cartesPostalesList[index].style.display = "inline-block";
 
     let cartePostale = document.getElementById("cp" + (index + 1));
-    console.log(cartePostale);
 
     let imgPlage = cartePostale.querySelector(".imgCarte");
     imgPlage.style.backgroundImage = "url('"+ element.photo + "')";
@@ -123,9 +128,33 @@ function updateSlideFin(plages, criteres){
     let itineraire = cartePostale.querySelector(".itineraire");
     itineraire.setAttribute("href", "https://www.google.com/maps/dir/" + getAffichage().latitude + ",+" + getAffichage().longitude + " /" + element.latitude + "," + element.longitude + "/")
   });
+
+  if (plages.length === 2) {
+    let carte1 = document.getElementById("cp1");
+    let carte2 = document.getElementById("cp2");
+    carte1.style.marginTop = "-60px";
+    carte2.style.marginTop = "-45px";
+  }
+  if (plages.length === 1) {
+    let carte1 = document.getElementById("cp1");
+    carte1.style.marginTop = "-60px";
+    carte1.style.transform = "rotate(1.8deg)";
+  }
 }
 
 function updateSlideFinNotFound(){
   let loading = document.getElementById("loading");
   loading.innerHTML = "<h2>Désolé, nous n'avons pas trouvé de plage correspondant à vos critères ! <br /> Essayez avec une nouvelle adresse ou d'autres critères.</h2>";
 }
+
+let boutonCredit = document.getElementById("boutonCredit");
+boutonCredit.addEventListener("click", function(){
+  let credits = document.getElementsByClassName("credits")[0];
+  credits.style.display = "block";
+});
+
+let closeCredit = document.getElementById("closeCredit");
+closeCredit.addEventListener("click", function(){
+  let credits = document.getElementsByClassName("credits")[0];
+  credits.style.display = "none";
+});

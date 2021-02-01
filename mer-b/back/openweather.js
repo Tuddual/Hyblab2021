@@ -48,28 +48,28 @@ exports.format = (data) => {
 
         for (const p of data_hourly) {
 
-            let i = data_daily.findIndex(elem => p.dt < elem.dt)
+            let i = data_daily.findIndex(elem => p.dt < elem.dt + 43200);
 
             prediction[0].push({
-                time: p.dt,
+                time: p.dt + 3600,
                 temperature: p.temp,
                 feels_like: p.feels_like,
                 weather: p.weather[0].main,
                 wind: p.wind_speed,
-                sunrise: data_daily[i].sunrise,
-                sunset: data_daily[i].sunset
+                sunrise: data_daily[i].sunrise + 3600,
+                sunset: data_daily[i].sunset + 3600
             });
         }
 
         for (let i = 2; i<data_daily.length; i++) {
             prediction[1].push({
-                time: data_daily[i].dt,
+                time: data_daily[i].dt + 3600,
                 temperature: data_daily[i].temp,
                 feels_like: data_daily[i].feels_like,
                 weather: data_daily[i].weather[0].main,
                 wind: data_daily[i].wind_speed,
-                sunrise: data_daily[i].sunrise,
-                sunset: data_daily[i].sunset
+                sunrise: data_daily[i].sunrise + 3600,
+                sunset: data_daily[i].sunset + 3600
             });
         }
 
@@ -87,11 +87,11 @@ exports.filter_time = (weather, filtres) => {
         let new_weather_plage = [];
         for (let j = 0; j<weather[i][0].length; j++) {
             let weather_time = weather[i][0][j];
-            const dawn = filtres.time === "dawn"  && weather_time.time > weather_time.sunrise - 3600 - 5400 && weather_time.time < weather_time.sunrise - 3600 + 5400;
-            const day = filtres.time  === "day"   && weather_time.time > weather_time.sunrise - 3600 + 5400 && weather_time.time < weather_time.sunset  - 3600 - 5400;
-            const dusk = filtres.time === "dusk"  && weather_time.time > weather_time.sunset  - 3600 - 5400 && weather_time.time < weather_time.sunset  - 3600 + 5400;
-            const night = filtres.time === "night" && weather_time.time > weather_time.sunset  - 3600 + 5400 && weather_time.time < weather_time.sunrise - 3600 - 5400;
-            if (dawn || day || dusk || night) {
+            const dawn  = weather_time.sunrise - 3600 - 5400 < weather_time.time && weather_time.time < weather_time.sunrise - 3600 + 5400;
+            const day   = weather_time.sunrise - 3600 + 5400 < weather_time.time && weather_time.time < weather_time.sunset  - 3600 - 5400;
+            const dusk  = weather_time.sunset  - 3600 - 5400 < weather_time.time && weather_time.time < weather_time.sunset  - 3600 + 5400;
+            const night = weather_time.time > weather_time.sunset  - 3600 + 5400 || weather_time.time < weather_time.sunrise - 3600 - 5400;
+            if (filtres.time === "dawn" && dawn || filtres.time  === "day" && day || filtres.time === "dusk" && dusk || filtres.time === "night" && night) {
                     new_weather_plage.push(weather_time);
             }
         }

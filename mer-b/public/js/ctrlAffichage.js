@@ -31,8 +31,7 @@ function updateElement(element, reponse){
       }
       else {
         if(valeur == "harbor"){
-          
-		  audioPort.volume = volumeGeneral;
+		      audioPort.volume = volumeGeneral;
           audioPort.play();
         }
         affichage[element] += valeur + ',';
@@ -50,13 +49,15 @@ function updateElement(element, reponse){
       root.style.setProperty('--breadcrumb-color', "#274652");
       root.style.setProperty('--bouton-texte-color', "#203443");
       root.style.setProperty('--bouton-bg-color', '#000D12');
+      root.style.setProperty('--bouton-bg-slider', '#000D12');
       document.body.style.backgroundImage = "url('img/FondsTextures/fondnuit.png')";
     }
     else if(element == "moment" && (reponse.json == "day" || reponse.json == "indifferent")){
       root.style.setProperty('--breadcrumb-color', "#9DF5FF");
       root.style.setProperty('--bouton-texte-color', "#203443");
       root.style.setProperty('--citation-color', "#203443");
-      root.style.setProperty('--bouton-bg-color', '#00C0D2');
+      root.style.setProperty('--bouton-bg-color', '#203443');
+      root.style.setProperty('--bouton-bg-slider', '#00C0D2');
       document.body.style.backgroundImage = "url('img/FondsTextures/fondjour.png')";
     }
     else if(element == "moment"){
@@ -64,6 +65,7 @@ function updateElement(element, reponse){
       root.style.setProperty('--breadcrumb-color', "#D07BBC");
       root.style.setProperty('--bouton-texte-color', "#71265F");
       root.style.setProperty('--bouton-bg-color', '#49083A');
+      root.style.setProperty('--bouton-bg-slider', '#49083A');
       document.body.style.backgroundImage = "url('img/FondsTextures/fondsoleil.png')";
     }
   }
@@ -87,4 +89,9 @@ function resetDisplay(){
   document.body.style.backgroundImage = "url('img/FondsTextures/fonddebut.png')";
   document.getElementsByClassName('stepperBouton')[0].style.left = 0;
   document.getElementById("topLeftLogo").style.display='none';
+
+  let boutonsVisited = Array.from(document.getElementsByClassName("boutonVisited"));
+  for(let i = 0; i < boutonsVisited.length; i++){
+    boutonsVisited[i].setAttribute("class", "bouton");
+  }
 }

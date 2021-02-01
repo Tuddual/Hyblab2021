@@ -78,8 +78,8 @@ function affichageReset(){
                       "img" : "img/Metiers/peinturefinal.png"
                     },
                     {
-                      "texte" : "Autres",
-                      "json" : "autres",
+                      "texte" : "Autre",
+                      "json" : "autre",
                       "img" : "img/Metiers/autresfinal.png"
                     }
                 ]
@@ -312,7 +312,6 @@ function affichageReset(){
         response.json().then(function(object) {
             if(object.status == 200){
                 addPhotos(object.output, object.criterion_not_met);
-				console.log(object);
             }
             else {
                 updateSlideFinNotFound();
@@ -329,7 +328,6 @@ function affichageReset(){
         .then(response => response.text())
         .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
         .then(data => {
-            console.log(data);
             let photo = data.getElementsByTagName("photo")[0];
             let serverId = photo.getAttribute("server");
             let id = photo.getAttribute("id");

@@ -462,7 +462,7 @@ div#breadcrumb-page-fin {
 }
 
 div#boutonGoSlide2 {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 /** slide adresse**/
@@ -845,8 +845,4 @@ table {
 
 td {
     padding-right: 10px;
-}
-
-.logoContainer {
-    margin-bottom: 3%;
 }

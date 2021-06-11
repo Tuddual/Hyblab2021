@@ -4,6 +4,8 @@ Porteur de projet : Ouest Media Lab
 
 Sujet : Creer une info-service sur le theme de la mer
 
+Vous pouvez voir le projet en ligne en cliquant sur le [lien](https://apps.hyblab.fr/nantes2021/mer-b/)
+
 Nom d'équipe : Orizone
 
 Participants : 
